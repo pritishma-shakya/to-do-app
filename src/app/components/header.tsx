@@ -1,6 +1,16 @@
-import MainTitle from "./main-title";
-import Date from "./date";
 import Buttons from "./buttons";
+
+function Date({content}:{content:string}){
+    return (
+        <h2 className="text-gray-400 font-semibold"> {content} </h2>
+    )
+}
+
+function MainTitle ({content}:{content:string}) {
+    return (
+        <h1 className="text-xl font-semibold"> {content} </h1>
+    )
+}
 
 export default function Header() {
     return (

@@ -1,11 +1,11 @@
-import Header from "./components/header";
-import TaskItem from "./components/task-item";
+import LeftPanel from "./components/left-panel";
+import MainPanel from "./components/main-panel";
 
 export default function Home() {
   return (
-    <div>
-      <Header />
-      <TaskItem />
+    <div className="flex pt-5">
+      <LeftPanel />
+      <MainPanel />
     </div>
   );
 }
