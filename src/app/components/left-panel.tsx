@@ -59,33 +59,33 @@ function Logo(){
 
 export default function LeftPanel () {
     const items: Items[]=[
-        { icon: <SlEnergy color="4a8af7"/>, content: "My Day", count: 8},
-        { icon: <IoAlertCircleOutline color="4a8af7"/>, content: "Important", count: null},
-        { icon: <LuCircleUser color="4a8af7"/>, content: "Personal", count: 4},
-        { icon: <IoGridOutline color="4a8af7"/>, content: "All", count: 56},
-        { icon: <IoCheckmarkCircleOutline color="4a8af7"/>, content: "Completed", count: 10},
-        { icon: <IoShareSocialOutline color="4a8af7"/>, content: "Assigned to me", count: null}
+        { icon: <SlEnergy color="4a8af7" size={20}/>, content: "My Day", count: 8},
+        { icon: <IoAlertCircleOutline color="4a8af7" size={20}/>, content: "Important", count: null},
+        { icon: <LuCircleUser color="4a8af7" size={20}/>, content: "Personal", count: 4},
+        { icon: <IoGridOutline color="4a8af7" size={20}/>, content: "All", count: 56},
+        { icon: <IoCheckmarkCircleOutline color="4a8af7" size={20}/>, content: "Completed", count: 10},
+        { icon: <IoShareSocialOutline color="4a8af7" size={20}/>, content: "Assigned to me", count: null}
     ]
     const ownItems: Items[]=[
-        { icon: <IoWallet/> , content: "Go Pay", count: 4},
-        { icon: <SiEmpirekred/>, content: "Kretya Studio", count: 2},
+        { icon: <IoWallet /> , content: "Go Pay", count: 4},
+        { icon: <SiEmpirekred />, content: "Kretya Studio", count: 2},
         { icon: <RiInboxFill/>, content: "Content Dump", count: 21},
 
     ]
     return (
-        <div className="bg-[#fafafa] p-4 h-screen w-1/5">
+        <div className="bg-[#fafafa] p-4 pt-10 h-screen w-1/5">
             <Logo />
             <div className="pt-6">
                 <Search />
             </div>
-            <div className="pt-4 flex flex-col gap-3">
+            <div className="pt-4 flex flex-col gap-4">
                 <Title content="Favorites" />
                 {items.map((item, index) => (
                     <SideBarItem key={index} data={item}/>
                 ))}
             </div>
             <div className="border border-gray-200 flex items-center my-5"></div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
                 <Title content="Your own tags" />
                 {ownItems.map((item, index) => (
                     <SideBarItem key={index} data={item}/>

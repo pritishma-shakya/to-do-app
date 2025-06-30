@@ -3,59 +3,46 @@
 import { GoStarFill } from "react-icons/go";
 import { useState } from "react";
 
-function TaskTitle ({content}:{content:string}) {
-    return (
-        <h1> {content} </h1>
-    )
+function TaskTitle({ content }: { content: string }) {
+  return <h1>{content}</h1>;
 }
 
-function TaskDate({content}:{content:string}) {
-    return (
-        <h2 className="text-sm text-blue-500 font-semibold"> {content} </h2>
-    )
+function TaskDate({ content }: { content: string }) {
+  return <h2 className="text-sm text-blue-500 font-semibold">{content}</h2>;
 }
 
-function TaskCategory ({content}:{content:string}){
-    return (
-        <h2 className="text-sm text-gray-400 font-semibold"> {content} </h2>
-    )
+function TaskCategory({ content }: { content: string }) {
+  return <h2 className="text-sm text-gray-400 font-semibold">{content}</h2>;
 }
 
-function CheckBox(){
-    return (
-        <input type="checkbox" ></input>
-    )
+function CheckBox() {
+  return <input type="checkbox" />;
 }
 
 function Star() {
   const [selected, setSelected] = useState(false);
-  
+
   return (
     <div onClick={() => setSelected(!selected)}>
-      {selected ? <GoStarFill color="#017AFF"/> : <GoStarFill color="#E2E2E2"/>}
+      <GoStarFill color={selected ? "#017AFF" : "#E2E2E2"} />
     </div>
   );
 }
 
-type Task = { 
-  title: string; 
-  category: string; 
-  date: string 
+type Task = {
+  title: string;
+  category: string;
+  date: string;
 };
 
-export default function TaskItem() {
-  const tasks : Task [] = [
-    { title: "Promotion Banner", category: "Go Pay", date: "Today" },
-    { title: "Daily Workout", category: "Personal", date: "Today" },
-    { title: "Make Dribble shoot", category: "Kretya Studio", date: "Wednesday, Dec 28" },
-    { title: "Announcement of Kretya Design challenge #1", category: "Kretya Studio", date: "Wednesday, Dec 28" },
-    { title: "Buy LED Strips", category: "Personal", date: "Thursday, Dec 29" },
-    { title: "Pull to refresh at promo discovery", category: "GoPay", date: "Friday, Dec 30"},
-    { title: "Edit video for social media", category: "Content Dump", date: "Friday, Dec 30" },
-    { title: "Make mood-board for new office interior", category: "Content Dump", date: "Friday, Dec 30"}
-  ];
+type TaskItemProps = {
+  tasks: Task[];
+  showStar?: boolean;
+};
+
+export default function TaskItem({ tasks, showStar = true }: TaskItemProps) {
   return (
-    <div className="space-y-0">
+    <div>
       {tasks.map((task, index) => (
         <div key={index} className="p-2.5 flex items-center gap-4">
           <CheckBox />
@@ -67,7 +54,7 @@ export default function TaskItem() {
               <TaskDate content={task.date} />
             </div>
           </div>
-          <Star />
+          {showStar && <Star />}
         </div>
       ))}
     </div>

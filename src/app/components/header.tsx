@@ -14,7 +14,7 @@ function MainTitle ({content}:{content:string}) {
 
 export default function Header() {
     return (
-        <div className="p-3 flex items-center">
+        <div className="flex items-center">
             <div className="text-left flex-1">
                 <MainTitle content="My Day"/>
                 <Date content="December 2022"/>
